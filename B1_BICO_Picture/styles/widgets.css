@@ -1,0 +1,815 @@
+.bb-ui input[type=radio]:not(old),
+.bb-ui input[type=checkbox]:not(old) {
+    /* Hides radio buttons and checkboxes. ':not(old)' hides the rule from older browsers. */
+    width: 1.6em;
+    height: 1.1em;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    opacity: 0;
+}
+
+.bb-ui input[type=radio]:not(old) + label,
+.bb-ui input[type=checkbox]:not(old) + label {
+    display: inline-block;
+    margin-left: -2em;
+    margin-right: -0.4em;
+    line-height: 1.36em;
+    padding-top: 0.16em;
+    border: 0.1em solid transparent;
+    border-radius: 0.2em;
+    box-sizing: border-box;
+    padding-right: 0.5em;
+}
+
+.bb-ui input[type=radio]:not(old).show-focus:focus + label,
+.bb-ui input[type=checkbox]:not(old).show-focus:focus + label {
+    border-color: #0090ff;
+}
+
+.bb-ui input[type=radio]:not(old) + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old) + label > span:first-child {
+	/* Custom background shape for radio buttons and checkboxes */
+	display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    border: 0.1em solid #000000;
+    box-shadow: inset 0 0.1em 0 0 rgba(255,255,255,.125);
+    background: linear-gradient(to bottom, rgb(85,85,85) 9%, rgb(74, 74, 74) 100%);
+    vertical-align: top;
+}
+
+.bb-ui input[type=radio].embossed:not(old) + label > span:first-child,
+.bb-ui input[type=checkbox].embossed:not(old) + label > span:first-child {
+	box-shadow: 0 0.1em 0 0 rgba(255,255,255,.12), inset 0 0.1em 0 0 rgba(255,255,255,.125);
+}
+
+.bb-ui input[type=radio]:not(old) + label > span:first-child {
+    /* The radio button circle */
+    border-radius: 0.65em; /* Width / 2 + border */
+    margin: 0.05em 0.5em 0 0.25em;
+}
+
+.bb-ui input[type=checkbox]:not(old) + label > span:first-child {
+    /* The checkbox button square */
+    border-radius: 0.2em;
+    margin: 0.041em 0.5em 0 0.25em;
+}
+
+.bb-ui input[type=radio]:not(old):hover + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old):hover + label > span:first-child {
+    background: linear-gradient(to bottom, rgb(107,107,107) 9%, rgb(96, 96, 96) 100%);
+}
+
+.bb-ui input[type=radio]:not(old):active + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old):active + label > span:first-child {
+    box-shadow: inset 0 0.1em 0 0 rgba(0,0,0,.14);
+}
+
+.bb-ui input[type=radio]:not(old).embossed:active + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old).embossed:active + label > span:first-child {
+    box-shadow: 0 0.1em 0 0 rgba(255,255,255,.12), inset 0 0.1em 0 0 rgba(0,0,0,.14);
+}
+
+.bb-ui input[type=radio]:not(old):active + label > span:first-child {
+    background: #323232;
+}
+
+.bb-ui input[type=checkbox]:not(old):active + label > span:first-child {
+    background: #3a3a3a;
+}
+
+.bb-ui input[type=radio]:not(old):checked + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old):checked + label > span:first-child {
+    background: linear-gradient(to bottom, rgb(60,158,255) 9%, rgb(36, 145, 255) 100%);
+}
+
+.bb-ui input[type=radio]:not(old):checked:hover + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old):checked:hover + label > span:first-child {
+     background: linear-gradient(to bottom, rgb(97,177,255) 9%, rgb(120, 188, 255) 100%);
+}
+
+.bb-ui input[type=radio]:not(old):checked:active + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old):checked:active + label > span:first-child {
+    background: #0671ae;
+    box-shadow: inset 0 0.1em 0 0 rgba(0,0,0,.14);
+}
+
+.bb-ui input[type=radio]:not(old).embossed:checked:active + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old).embossed:checked:active + label > span:first-child {
+    box-shadow: 0 0.1em 0 0 rgba(255,255,255,.12), inset 0 0.1em 0 0 rgba(0,0,0,.14);
+}
+
+.bb-ui input[type=radio]:not(old):disabled + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old):disabled + label > span:first-child {
+	background: #3b3b3b;
+	box-shadow: none;
+}
+
+.bb-ui input[type=radio]:not(old).embossed:disabled + label > span:first-child,
+.bb-ui input[type=checkbox]:not(old).embossed:disabled + label > span:first-child {
+	box-shadow: 0 0.1em 0 0 rgba(255,255,255,.12);
+}
+
+.bb-ui input[type=radio]:not(old):checked + label > span:first-child > span{
+    /* The dot in the middle of a selected radio button */
+    display          : block;
+    width            : 0.5em;
+    height           : 0.5em;
+    margin           : 0.3em; /* ( Circle width - dot width )  / 2 */
+    border-radius    : 0.25em; /* Dot width / 2 */
+    background       : #000000;
+}
+
+.bb-ui input[type=checkbox]:not(old):checked + label > span:first-child > span {
+    /* The checkmark bitmap inside the checkbox */
+    display          : block;
+    width: 1.1em;
+    height: 1.1em;
+    background-position: -18.6em -3.4em;
+    background-image: url(../images/bb2-sprites.png);
+    background-size: 40.0em 57.6em; /* Update this if sprite sheet dimensions change !!! */
+}
+
+.bb-ui input[type=radio]:not(old) + label > span:not(:first-child),
+.bb-ui input[type=checkbox]:not(old) + label > span:not(:first-child) {
+    /* Label text */
+    font-size: 150%;
+    color: #ff9e24;
+}
+
+.bb-ui input[type=radio]:not(old):disabled + label > span:not(:first-child),
+.bb-ui input[type=checkbox]:not(old):disabled + label > span:not(:first-child) {
+    /* Label text (disabled)*/
+    color: #666666;
+}
+
+/*.text-select {
+	-webkit-user-select: text;  
+	-moz-user-select: text;    
+	-ms-user-select: text;      
+	user-select: text;
+}*/
+
+.split-pane-left,
+.split-pane-right {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.split-pane-left {
+	left: 0;
+	width: 50%;
+	max-width: 100%;
+}
+
+.split-pane-right {
+	right: 0;
+	left: 50%;
+}
+
+.split-pane-left.resizing,
+.split-pane-right.resizing {
+	cursor: e-resize !important;
+}
+
+.split-pane-horiz-resizer {
+	cursor: e-resize;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 1.0em;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.split-pane-top,
+.split-pane-bottom {
+	position: absolute;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+
+.split-pane-top {
+	top: 0;
+	height: 50%;
+	max-height: 100%;
+}
+
+.split-pane-bottom {
+	bottom: 0;
+	top: 50%;
+}
+
+.split-pane-top.resizing,
+.split-pane-bottom.resizing {
+	cursor: n-resize !important;
+}
+
+.split-pane-vert-resizer {
+	cursor: n-resize;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 1.0em;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.split-pane-horiz-resizer .line {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 0.2em;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #383838;
+	border-left: 0.1em solid black;
+	border-right: 0.1em solid black;
+}
+
+.scroll-container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+
+	overflow: hidden;
+}
+
+.vscroll {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+
+	overflow: hidden;
+}
+
+.hscroll {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	overflow: hidden;
+}
+
+.scroll-thumb {
+	position: absolute;
+
+	/*min-width: 10px;
+	min-height: 10px;*/
+
+	min-width: 1.0em;
+	min-height: 1.0em;
+
+	left: 0;
+	top: 0;
+	box-sizing: border-box;
+
+	background-color: #545454;
+
+	/*border: 1px solid #171717;*/
+
+	border: 0.1em solid #171717;
+
+	overflow: hidden;
+}
+
+.scroll-thumb:hover,
+.scroll-thumb:active {
+	background-color: #666666;
+
+}
+
+.vscroll .scroll-thumb {
+	min-height: 2.0em;
+}
+
+.vscroll .scroll-thumb-nubs {
+
+	/*width: 6px;
+	height: 10px;*/
+
+	width: 0.6em;
+	height: 1.0em;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	/*background-image: url(../images/bb2-sprites.png);
+	background-position: -166px -34px;*/
+
+	background-position: -16.6em -3.4em;
+	/* background-position: -4.2em -8.7em; */ /* 168   348  */
+}
+
+.hscroll .scroll-thumb {
+	min-width: 2.0em;
+}
+
+.hscroll .scroll-thumb-nubs {
+
+	/*width: 10px;
+	height: 6px;*/
+
+	width: 1.0em;
+	height: 0.6em;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	/*background-image: url(../images/bb2-sprites.png);
+	background-position: -174px -34px;*/
+
+	background-position: -17.4em -3.4em;
+	/* background-position: -5.0em -8.7em; */  /* 200   348 */
+
+}
+
+.combo-box {
+	position: relative;
+	outline: 0;
+	height: 1.9em;
+	width: 10.2em; /* Some default value that is usually overridden */
+	border-radius: 0.35em;
+	border: 0.1em solid transparent;
+	font-family: 'Bloomberg_Prop';
+	color: #000000;
+	cursor: default;
+}
+
+.combo-box:focus {
+	border-color: #0090ff;
+	background-color: #0090ff;
+}
+
+.combo-box-inner {
+	height: inherit;
+	width: inherit;
+	background-color: black;
+	border-radius: 0.3em;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.combo-box .text {
+	position: absolute;
+	background-color: #ff9e24;
+	/*cursor: text;*/
+	top: 0.1em;
+	left: 0.1em;
+	right: 1.6em;
+	height: 1.7em;
+	line-height: 1.7em;
+	border-top-left-radius: 0.2em;
+	border-bottom-left-radius: 0.2em;
+	padding-left: 0.2em;
+}
+
+.combo-box .text > * {
+	font-size: 130%;
+}
+
+.combo-box.disabled .text {
+	background-color: #a69785;
+}
+
+.combo-box .arrow-btn {
+	position: absolute;
+	top: 0.1em;
+	right: 0.1em;
+	height: 1.7em;
+	width: 1.6em;
+	border-top-right-radius: 0.2em;
+	border-bottom-right-radius: 0.2em;
+	background-color: #4a4a4a;
+	border-left: 0.1em solid black;
+	-webkit-box-shadow: inset 0 0.1em 0 0 rgba(255,255,255,.125);
+	box-shadow: inset 0 0.1em 0 0 rgba(255,255,255,.125);
+	box-sizing: border-box;
+}
+
+.combo-box .down-caret {
+	vertical-align: middle;
+	margin-left: 0.64em;
+	margin-top: 0.06em;
+	opacity: 0.78;
+	transform: rotate(0.25turn) scale(0.846, 0.705);
+}
+
+.combo-box.disabled .down-caret {
+	opacity: .25;
+}
+
+.combo-box:hover .arrow-btn {
+	background-color: #626262;
+}
+
+.combo-box.disabled:hover .arrow-btn {
+	background-color: #4a4a4a;
+}
+
+.combo-box.active .arrow-btn {
+	background-color: #3d3d3d;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.dropdown {
+	position: absolute;
+	z-index: 990; /* Same as menus */
+	background-color: #1d1d1d;
+	border: 0.1em solid #d8d8d8;
+	color: #ff9e24;
+	cursor: default;
+}
+
+.dropdown .table-box {
+	display: inline-block;
+}
+
+.dropdown table {
+	width: 100%;
+	border-collapse: collapse;
+	white-space: nowrap;
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+
+.dropdown tr td {
+	padding-left: 1.2em;
+	padding-right: 1.7em;
+	height: 1.9em;
+}
+
+.dropdown tr td > * {
+	font-size: 130%;
+}
+
+.dropdown .item:hover td {
+	background-color: #383838;
+}
+
+.dropdown .item.select td {
+	background-color: #113c66;
+}
+
+.dropdown .header {
+	color: white;
+	height: 2.1em;
+}
+
+.dropdown .header td {
+	padding-left: 1.1em;
+}
+
+.dropdown.wider tr td {
+	padding-right: 2.7em;
+}
+
+/* ------------------------------------------------------------- */
+
+.tabs {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+
+.tabs-bar {
+	flex: none;
+	position: relative;
+}
+
+.tabs-content {
+	flex: 1 1 auto;
+	position: relative;
+}
+
+.tabs .tabs-bar-fill {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.tabs .tab-btns {
+    display: inline-block;
+    height: 100%;
+}
+
+.tabs .tab-btns-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: rgba( 0, 255, 0, 0.5 );
+}
+
+.tabs .tab-btn {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 2.2em;
+	line-height: 2.2em;
+	font-family: 'Bloomberg_Prop';
+	letter-spacing: 0.025em;
+	color: #bfbfbf;
+	border-top-left-radius: 0.4em;
+	border-top-right-radius: 0.4em;
+	border-bottom: 0.1em solid #434343;
+	background-color: #4d4d4d;
+	box-sizing: border-box;
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+
+	/* margin-left: 0; */
+
+	cursor: default;
+}
+
+.tabs .tab-btn span {
+	font-size: 1.2em;
+}
+
+.tabs .tab-btn ~ .tab-btn {
+	margin-left: 0.2em;
+}
+
+.tabs .tab-btn:active {
+	background-color: #323232;
+}
+
+.tabs .tab-btn.selected {
+	background-color: #7b7b7b;
+	color: white;
+	border-color: transparent;
+}
+
+.tabs .tab-btn:hover {
+	background-color: #626262;
+	border-color: #565656;
+}
+
+/*.tabs-content {
+	position: absolute;
+	border: 0.2em solid #00ff00;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}*/
+
+/* This block is just for dev - right now these two cells don't have any default styling */
+
+.tabs .row-auto > .cell {
+	/* This is the top cell that contains the div with the tabs */
+}
+
+.tabs .row-expand > .cell {
+	position: relative;
+
+}
+
+/* End block */
+
+/*.tabs.resize .tabs-bar-fill {
+	min-width: 14.0em;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.tabs.resize .tabs-bar {
+	height: 2.9em;
+	overflow: hidden;
+}
+
+.tabs.resize .tabs-content-box {
+	background-color: black;
+	border-left: 0.1em solid #bec2c7;
+	border-right: 0.1em solid #bec2c7;
+	border-bottom: 0.1em solid #bec2c7;
+	overflow: hidden;
+}
+
+.tabs.resize .tabs-box {
+	position: absolute;
+	top: 11px;
+	left: 11px;
+	right: 11px;
+	bottom: 11px;
+}
+
+.tabs.resize .tabs-bar-bg {
+	border-bottom: 0.1em solid #bec2c7;
+}
+
+.tabs.resize .add-icon {
+	position: absolute;
+	width: 1.2em;
+	height: 1.2em;
+	left: 0.8em;
+    top: 0.7em;
+	background-position: -29.4em -0.2em;
+}
+
+.tabs.resize .scroll-icon {
+	position: absolute;
+	width: 1.0em;
+	height: 1.3em;
+	left: 0.9em;
+    top: 0.6em;
+	background-position: -29.4em -1.6em;
+}
+
+.tabs.resize .close-tab {
+	position: absolute;
+	width: 1.5em;
+	height: 1.5em;
+	right: 0.5em;
+    top: 0.6em;
+	background-position: -29.4em -3.1em;
+	/*visibility: hidden;*/
+	opacity: 0;
+}
+
+.tabs.resize .close-tab:hover {
+	background-color: #6a6d6f;
+}
+
+.tabs.resize .add,
+.tabs.resize .left-arrow,
+.tabs.resize .right-arrow {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-top: 0.1em;
+    width: 3.0em;
+    height: 2.7em;
+    box-sizing: border-box;
+    border-top-left-radius: 0.45em;
+    border-top-right-radius: 0.45em;
+    border: 0.1em solid transparent;
+    border-bottom: none;
+}
+
+.tabs.resize.left-arrow {
+	margin-right: -0.1em;
+}
+
+.tabs.resize .left-arrow .scroll-icon {
+	transform: scaleX(-1);
+}
+
+.tabs.resize .tab-btn {
+	background-color: rgba(153, 156, 159, 0.8);
+	position: absolute;
+	display: block;
+	height: auto;
+    left: 0;
+    right: -0.1em;
+    top: 0.1em;
+    bottom: 0.079em; /*0;*/
+    border-top-left-radius: 0.45em;
+    border-top-right-radius: 0.45em;
+    border: 0.1em solid #676a6c;
+    border-bottom: none;
+}
+
+.min-border .tabs.resize .tab-btn {
+	border-width: 1px;
+}
+
+.tabs.resize .tab-btn .text {
+	position: absolute;
+	left: 0.7em;
+	top: 0.2em;
+	right: 2.6em;
+	height: auto;
+	overflow: hidden;
+}
+
+.tabs.resize .tab-btn span {
+	white-space: nowrap;
+	color: black;
+}
+
+.tabs.resize .tab-btn span.subtitle {
+	margin-left: 0.8em;
+}
+
+.tabs.resize .tab-btn:hover,
+.tabs.resize .add:hover,
+.tabs.resize .left-arrow:hover,
+.tabs.resize .right-arrow:hover {
+	background-color: rgba(153, 156, 159, 0.9);
+	border-color: #676a6c;
+}
+
+.tabs.resize .add:active,
+.tabs.resize .left-arrow:active,
+.tabs.resize .right-arrow:active {
+	background-color: #292929;
+	border-color: #bec2c7;
+}
+
+.tabs.resize .left-arrow.disabled,
+.tabs.resize .right-arrow.disabled {
+	background-color: transparent;
+	border-color: transparent;
+	opacity: 0.5;
+}
+
+.tabs.resize .tab-btn.selected {
+	background-color: #292929;
+	border-color: #bec2c7;
+	top: 0;
+	bottom: 0;
+	z-index: 1; 
+	border-bottom: none;
+}
+
+.tabs.resize .tab-btn:hover .close-tab {
+	opacity: 1;
+}
+
+.tabs.resize .tab-btn.selected .close-tab {
+	background-position-y: -4.8em;
+	opacity: 1;
+}
+
+.tabs.resize .tab-btn.selected .close-tab:hover {
+	background-position-y: -3.1em;
+
+}
+
+.tabs.resize .tab-btn.selected .text {
+	top: 0.3em;
+}
+
+.tabs.resize .tab-btn.selected span {
+	color: white;
+}
+
+.tabs.resize .tab-btn.selected span.subtitle {
+	color: #bdbdbd;
+}
+
+.tabs.resize .full-tab-width {
+    width: 20.2em;
+}
+
+.tabs.resize .min-tab-width {
+	width: 8.9em;
+	visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tabs.resize .tabs-right-margin {
+	width: 18.4em;
+	visibility: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}*/
+
+.sharktooth-outer {
+	position: relative;
+	border: 1px solid #000000;
+}
+
+.sharktooth-inner {
+	position: relative;
+	border: 1px solid #d8d8d8;
+	background-color: #1d1d1d;
+	font-size: 62.5%;
+	box-sizing: border-box;
+	padding: 10px 10px;
+}
+
+.sharktooth-text {
+	color: #d8d8d8;
+	font-size: 13px;
+	cursor: default;
+	margin: 0 0 6px 2px;
+}
+
+.sharktooth-pointer {
+	position: absolute;
+	width: 17px;
+	height: 10px;
+	background-image: url(../images/bb2-sprites.png);
+	background-position: -2px -215px;
+}
+

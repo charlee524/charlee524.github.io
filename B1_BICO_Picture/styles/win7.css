@@ -1,0 +1,480 @@
+.win7 {
+	background: transparent;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 750px;
+	height: 615px;
+	/*height: 584px;*/ /* added 31 to accommodate welcome screen in demo */
+}
+
+.win7 .bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(255,255,255,0.15);
+	border-radius: 6px;
+	border: 1px solid rgba(0, 0, 0, .6);
+	cursor: default;
+	/*overflow: hidden;* /* no idea how this got in here */
+	-webkit-box-shadow: 2px 2px 7px 3px rgba(0,0,0,.3);
+	box-shadow: 2px 2px 7px 3px rgba(0,0,0,.3);
+}
+
+.win7.active .bg {
+	border-color: rgba(6, 13, 20, .88);
+	background-color: rgba(73, 114, 164, 0.3);
+	-webkit-box-shadow: 4px 4px 9px 6px rgba(0,0,0,.4);
+	box-shadow: 4px 4px 9px 6px rgba(0,0,0,.4);
+}
+
+.win7.maximized .bg {
+	border-radius: 0;
+	border: none;
+}
+
+.win7 .inner-border {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border: 1px solid transparent;
+	border-radius: 6px;
+}
+
+.win7.maximized .inner-border {
+	visibility: hidden;
+}
+
+.win7 .content-box {
+	position: absolute;
+	top: 16px;
+	left: 6px;
+	right: 6px;
+	bottom: 6px;
+	overflow: hidden;
+}
+
+.win7.tabs-off .content-box {
+	top: 28px;
+}
+
+.win7.maximized .content-box {
+	top: 20px;
+	left: -1px;
+	right: -1px;
+	bottom: -1px;
+}
+
+.corner-hilite {
+	position: absolute;
+	top: 0;
+	width: 165px;
+	height: 123px;
+	background-image: url(../images/win7-chrome.png);
+	background-position: -2px -112px;
+	border-top-left-radius: 6px;
+	opacity: .15;
+}
+
+.win7 .ctrls2.no-options {
+	visibility: hidden;
+}
+
+.corner-hilite.left {
+	left: 0;
+}
+
+.corner-hilite.right {
+	right: 0;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.win7.active .corner-hilite { 
+	opacity: .3;
+}
+
+.win7.maximized .corner-hilite {
+	border-top-left-radius: 0;
+}
+
+.win7.active .gradient {
+	opacity: 1;
+}
+
+.win7 .gradient-bounds {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 46px;
+	bottom: 6px;
+}
+
+.win7.tabs-off .gradient-bounds {
+	top: 28px;
+}
+
+.win7 .gradient {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 25%;
+	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%);
+	-pie-background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0.8));
+	behavior: url(styles/PIE.htc); /* Note this is relative to the html ! */
+	opacity: .15;
+}
+
+.win7 .win-tab {
+	position: absolute;
+	width: 20.1em;
+	background-color: #292929;
+}
+
+.win7 .win-tab,
+.win7 .new-tab {
+	height: 2.9em;
+	border-left: 0.1em solid #bec2c7;
+	border-top: 0.1em solid #bec2c7;
+	border-right: 0.1em solid #bec2c7;
+	border-top-left-radius: 0.3em;
+	border-top-right-radius: 0.3em;
+	top: 0;
+}
+
+.win7 .tab-close {
+	left: 17.8em;
+	top: 0.6em;
+}
+
+.win7 .tab-text {
+	left: 0.7em;
+	top: 0.5em;
+}
+
+.win7 .new-tab {
+	position: absolute;
+	width: 2.3em;
+	top: 0;
+	left: 20.5em;
+	border-color: transparent;
+}
+
+.win7 .new-tab,
+.win7 .new-tab:hover{
+	background-position: -7.7em -14.1em;
+}
+
+.win7 .new-tab:hover {
+	background-color: #292929;
+	border-color: #bec2c7;
+}
+
+.simulated .win7 .new-tab:not(.hover):hover {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+/*////////////////		Title		//////////////////////////////////////////////////////////////////////*/
+
+.win7-title {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	/*height: 30px;*/
+}
+
+.glow-box {
+	position: absolute;
+	left: 29px;
+	top: 0;
+	right: 195px;
+	height: 30px;
+}
+
+.glow {
+	position: relative;
+	width: 100%;
+	height: 3px;
+	margin-top: 13px;
+	border-radius: 20px;
+	border: 1px solid transparent;
+	background: rgba(255,255,255,.6);
+	-webkit-box-shadow: 0 0 14px 8px rgba(255,255,255,.6);
+	box-shadow: 0 0 14px 8px rgba(255,255,255,.6);
+	z-index: -1;
+	opacity: .35;
+}
+
+.active .glow {
+	opacity: 1;
+}
+
+.win7-title.no-options .bb-window-title-box  {
+	right: 113px;
+}
+
+.win7-title.no-options .glow-box  {
+	right: 110px;
+}
+
+.win7-title.close-ctrl .bb-window-title-box  {
+	right: 57px;
+}
+
+.win7-title.close-ctrl .glow-box  {
+	right: 54px;
+}
+
+.maximized .win7-title {
+	top: -4px;
+}
+
+.win7.maximized .bb-window-icon {
+	top: 2px;
+}
+
+.win7 .bottom > .cell,
+.win7 .favorites,
+.win7 .command-bar {
+	border-left: 0.1em solid #bec2c7;
+	border-right: 0.1em solid #bec2c7;
+}
+
+.win7.tabs-off .favorites,
+.win7.favorites-off.tabs-off .command-bar,
+.win7.favorites-off.tabs-off.command-line-off .win-right {
+	border-top:0.1em solid #bec2c7;
+}
+
+.win7 .content-holder {
+	bottom: 2.8em; /* Ad's height plus 1 for the bottom border */
+}
+
+.win7.ipanel-off .content-holder {
+	bottom: 0.1em;
+}
+
+.win7 .ad-box {
+	border-bottom: 0.1em solid #bec2c7;
+}
+
+.win7 .ad {
+	left: 0.2em;
+	right: 0.2em;
+	bottom: 0.1em;
+}
+
+.win7.min-border .win-tab,
+.win7.min-border .new-tab,
+.win7.min-border .tabs-border,
+.win7.favorites-off.tabs-off.min-border .command-bar,
+.win7.min-border .command-bar,
+.win7.tabs-off.min-border .favorites,
+.win7.min-border .favorites,
+.win7.min-border .bottom .cell,
+.win7.min-border.favorites-off.tabs-off.command-line-off .win-right,
+.win7.min-border .ad-box {
+	border-width: 1px;
+}
+
+.win7 .inner-border,
+/*.win7 .ctrls,*/
+.b1 .content-box {
+	border-color: rgba(255,255,255,.64);
+}
+
+.win7.active .inner-border {
+/*.win7.active .ctrls,
+.b1.active .content-box {*/
+	border-color: rgba(255,255,255,.85);
+}
+
+.win7-ctrls,
+.win7-ctrls-close-only,
+.b2-options-box {
+	position: absolute;
+	top: 1px;
+	height: 20px;
+	background-image: url(../images/win7-chrome.png);
+	background-position-y: -2px;
+}
+
+.maximized .win7-ctrls,
+.maximized .win7-ctrls-close-only,
+.maximized .b2-options-box {
+    top: -1px;
+}
+
+.win7-ctrls,
+.win7-ctrls-close-only {
+    right: 6px;
+}
+
+.maximized .win7-ctrls,
+.maximized .win7-ctrls-close-only {
+    right: 2px;
+}
+
+.win7-ctrls {
+    width: 105px;
+    background-position-x: -2px;
+}
+
+.win7-ctrls-close-only {
+    width: 49px;
+    background-position-x: -216px;
+}
+
+.b2-options-box {
+	right: 120px;
+	width: 69px;
+	background-position-x: -115px;
+}
+
+.maximized .b2-options-box {
+    right: 116px;
+}
+
+.win7.active .win7-ctrls,
+.win7.active .win7-ctrls-close-only,
+.win7.active .b2-options-box {
+	background-position-y: -24px;
+}
+
+/*  Windows 7 Button Shared */
+
+.win7-btn {
+	position: absolute;
+	height: 20px;
+	background-image: url(../images/win7-chrome.png);
+	background-position-y: -46px;
+}
+
+.win7-btn::before {
+	content: '';
+	position: absolute;
+	height: 19px;  /* Button height - 2 */
+	top: 0;
+	left: 1px;
+	opacity: 0;
+	transition: opacity 0.5s;
+	box-shadow: 0px 0px 14px 4px rgba(80, 202, 255, .85); /* override this for close button */
+}
+
+.win7-btn::after {
+	content: '';
+	position: absolute;
+	height: 20px;
+	left: 0;
+	top: 0;
+	background-image: url(../images/win7-chrome.png);
+	opacity: 0;
+	transition: opacity 0.5s;
+	background-position-y: -68px;
+}
+
+.win7-btn:hover::before,
+.win7-btn:hover::after,
+.win7-btn.active::after {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.win7-btn:hover::before {
+	opacity: 1;
+	transition: opacity 0.2s;
+}
+
+.win7-btn:not(.hover):active:hover::before,
+.win7-btn.hover.active::before,
+.win7-btn:active::before {
+	transition: opacity 0.2s;
+}
+
+.win7-btn:not(.hover):active:hover::after,
+.win7-btn.hover.active::after,
+.win7-btn:active::after,
+.win7-btn.active::after {
+	background-position-y: -90px;
+	transition: opacity 0.2s;
+}
+
+/*  Windows 7 Minimize Button */
+
+.win7 .minimize,
+.win7 .minimize::after {
+	width: 30px;
+	background-position-x: -2px;
+}
+
+.win7 .minimize::before {
+	border-bottom-left-radius: 2px;
+	width: 28px; /* Button width - 2 */
+}
+
+/*  Windows 7 Maximize Button */
+
+.win7 .maximize {
+	left: 29px;
+}
+
+.win7 .maximize,
+.win7 .maximize::after {
+	width: 28px;
+	background-position-x: -34px;
+}
+
+.win7.maximized .maximize,
+.win7.maximized .maximize::after {
+	background-position-x: -186px;
+}
+
+.win7 .maximize::before {
+	width: 26px; /* Button width - 2 */
+}
+
+/*  Windows 7 Close Button */
+
+.win7 .close,
+.win7 .close::after {
+	right: 0;
+	width: 49px;
+	background-position-x: -64px;
+}
+
+.win7 .close::before {
+	border-bottom-right-radius: 2px;
+	width: 47px; /* Button width - 2 */
+	box-shadow: 0px 0px 14px 4px rgba(255, 128, 94, .85);
+}
+
+/*  B2 Panel Options Button */
+
+.b2-options,
+.b2-options::after {
+	width: 69px;
+	background-position-x: -115px;
+}
+
+.b2-options::before {
+	width: 67px; /* Button width - 2 */
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+/* TODO: Update this for the restructured Windows 7 buttons:
+.simulated .win7-btn:not(.hover):hover {
+	box-shadow: none;
+	background-position-y: -46px;
+}
+*/

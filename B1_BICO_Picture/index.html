@@ -1,0 +1,674 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BI Primer</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<link rel="stylesheet" href = "styles/main.css">
+	<link rel="stylesheet" href = "styles/win7.css">
+	<link rel="stylesheet" href = "styles/desktop.css">
+	<link rel="stylesheet" href = "styles/menus.css">
+	<link rel="stylesheet" href = "styles/widgets.css">
+	<link rel="stylesheet" href = "styles/b1.css">
+	<link rel="stylesheet" href = "styles/bico.css">
+	<style>
+
+		.bico {
+			/* The BICO function's top level element */
+			
+		}
+		.bico .something {  
+			/* A transparent green box in front of the ABC function's background image */
+			position: absolute;
+			width: 130px;
+			height: 115px;
+			left: 0px;
+			top: 38px;
+			/*background-color: rgba(0, 255, 0, 0.4);*/
+	} 
+
+		.abc .something {  
+			/* A transparent green box in front of the ABC function's background image */
+			position: absolute;
+			width: 130px;
+			height: 115px;
+			left: 1px;
+			top: 38px;
+			background-color: rgba(0, 255, 0, 0.4);
+	} 
+ 
+	</style>
+</head>
+<body>
+	<script src="scripts/fontfaceobserver.js"></script>
+	<script src="scripts/lib.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/windows.js"></script>
+	<script src="scripts/tooltip.js"></script>
+	<script src="scripts/desktop.js"></script>
+	<script src="scripts/menus.js"></script>
+	<script src="scripts/easing.js"></script>
+	<script src="scripts/bb-content.js"></script>
+	<script src="scripts/b1-window.js"></script>
+	<script src="data/menus.js"></script>
+    <script src="scripts/bico.js"></script>
+	<script>
+(function (){
+
+	var ns = window[window.globalNamespaceName];
+	ns.B1WindowTemplate = ns.B1WindowTemplate || {};
+	var app = ns.B1WindowTemplate;
+	ns.PrototypeFunctions = (ns.PrototypeFunctions) ? ns.PrototypeFunctions : {};
+
+	document.oncontextmenu = null; // Comment this line if you don't need to right-click to inspect elements in the browser
+
+	// Two skeleton functions are defined, 'abc' and 'def', to demo switching between functions
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	ns.PrototypeFunctions.bico = function (initData) {
+		// initData is an object that usually contains the property 'initialOwner', a reference to the containing window or pane
+		ns.PrototypeFunctions.bico.parent.constructor.apply(this, arguments);
+		this.title = 'Bloomberg Intelligence Company Primer';
+	};
+
+	ns.PrototypeFunctions.bico.BACKGROUND_IMAGE_PATH = 'images/b1-sample-function.png';
+
+	ns.extend(ns.PrototypeFunctions.bico, ns.BBContentView);
+
+	ns.PrototypeFunctions.bico.prototype.onDOMReady = function() {
+
+		// Tell the 'owner' (an instance of B1Window) to add a title bar menu button:
+		
+
+		// Add a title bar button
+		this.owner.addTitleBarButton( {text:'Send', numberGo:'66', id:'send'} );
+        
+        // (In order to open a title bar menu, this function needs to have 'getMenuDefinition' and 'onTitleBarMenuItemSelect' methods)
+		this.owner.addTitleBarMenuButton( {text:'Actions', numberGo:'98', menuId:'actions'} );
+		// Style the function:
+		this.el.classList.add('bico');
+
+		// Add a background image:
+		this.addBackgroundImage(ns.PrototypeFunctions.bico.BACKGROUND_IMAGE_PATH);
+
+		// Load an iPanel image:
+		this.owner.loadIPanelImage('images/b1-sample-ipanel.png');
+		
+		// Load hover image:
+		//this.owner.loadIPanelImage('images/x_tab_credit_hover.png');
+		
+		// Load hover tooltip image:
+		//this.owner.loadIPanelImage('images/x_tab_credit_tooltip.png');
+	};
+
+	ns.PrototypeFunctions.bico.prototype.getMenuDefinition = function(menuId) {
+		switch (menuId){
+			case 'options':
+			return [
+				'|ABC Option A|optionA',
+				'|ABC Option B|optionB',
+				'|ABC Option C|optionC',
+				'|ABC Option D|optionD',
+			];
+			break;
+			case 'actions':
+			return [
+				'|Menu on Left|optionA',
+				'|Menu on Right|optionB',
+				'|Print|optionC',
+				'|Bookmark|optionD',
+				'|Copy Link|optionE',
+				'|Export to PDF|optionF',
+				'|Increase Font Size|optionG',
+				'|Decrease Font Size|optionG',
+			];
+			break;
+		}
+		return [];
+	};
+
+	
+
+	ns.PrototypeFunctions.bico.prototype.onTitleBarButtonClick = function (id, e) {
+		console.log('BICO got title bar button click: ' + id);
+	};
+
+	ns.PrototypeFunctions.bico.prototype.onImageLoaded = function(e){
+		
+		// Callback from 'addBackgroundImage'
+		if (e.target.getAttribute('src') === ns.PrototypeFunctions.bico.BACKGROUND_IMAGE_PATH){
+            
+			// Background image is loaded; put UI elements in front of it (this is anchor bar):
+			//this.anchor= ns.Views.create('div', 'anchor', this.el); 
+			//this.anchor.innerHTML = "1. BI Company Primer: AT&T";
+			
+			//Analyst Section
+            var analystSection = ns.Views.create('div',[], this.el);
+            analystSection.id = "analyst-section";
+            analystSection.innerHTML = `
+			    <div> </div>`;
+            
+            //Anchor Section
+			var anchorHeading = ns.Views.create('div', [], this.el); // TW
+			anchorHeading.id = "anchor-heading-row";
+			//this.anchor= ns.Views.create('div', [], this.el); // TW
+		//cl	this.anchor= ns.Views.create('div', [], anchorHeading); // TW
+
+		//cl	this.anchor.id = "anchor";
+			anchorHeading.innerHTML=  `
+			    <div id="anchor-index">1. </div>
+				<div id="anchor-heading"> BI Company Primer: AT&T</div>`;
+			// this is menutron dropdown:
+
+			//this.menutronCombo= ns.Views.create('div', [], this.el); // TW
+			this.menutronCombo = ns.Views.create('div', [], anchorHeading); // TW
+
+
+			this.menutronCombo.id = "menutronCombo";
+			this.menutronCombo.innerHTML = `
+			    <div id="menutronComboLabel">1 of 15</div>
+			    <div id="menutronComboDropDownContainer">
+				    <div class= "menutronComboDropDownItem" onclick="updateMenutron(1);">1. Intro</div>
+				    <div class= "menutronComboDropDownItem" style="color:white;" onclick="updateMenutron(16);"> Financial Review</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(2);">2. Revenue</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(3);">3. Margin</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(4);">4. Profitability</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(5);">5. Earning Review</div>
+					<div class= "menutronComboDropDownItem" style="color:white;" onclick="updateMenutron(17);">Key Topic</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(6);">6-7. Business Solutions</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(8);">8-10. Entertainment</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(11);">11-13. Wireless</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(14);">14. Mexico Expansion</div>
+					<div class= "menutronComboDropDownItem" onclick="updateMenutron(15);">15. Spectrum</div>
+				</div>`;
+			this.menutronCombo.addEventListener('click', function (event) {
+				if (this.classList.contains('menutronComboClicked')) {
+					this.classList.remove('menutronComboClicked');
+				} else {
+					this.classList.add('menutronComboClicked');
+				}
+			}, false);
+
+			// this is content being scrolled:
+			this.bicoScrollDiv = ns.Views.create('div', 'b1-bico-scroll', this.el); 
+
+			const HTML_TEMPLATE = `
+			   
+                <div class="b1-bico-subheading"><a name="chap1">08/25/16</a></div>
+                
+                 <div class="b1-bico-toc-financial-section">
+                  	<div class="b1-bico-table"> Table of Contents </div>
+                  	             
+                  	<div class="b1-bico-toc-container">
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class="b1-bico-table-heading"> Financial Review</div>
+                    	</div>
+                    	
+                        <div class="b1-bico-toc-item-row">
+                    		<div class="b1-bico-table-heading"> Topics</div>
+                    	</div>
+                    </div>  
+                    <div class="b1-bico-toc-container">
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-up"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(2);"><a href="#chap2" style="text-decoration:none;"> Revenue</a></div>
+                    	</div>
+                    	
+                        <div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-up"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(6);"> <a href="#chap6" style="text-decoration:none;"> Business Solution</a></div>
+                    	</div>
+                    </div>
+                    
+                    <div class="b1-bico-toc-container">
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ='b1-bico-table-item-diamond'></div> <div class='b1-bico-toc-item-cell' onclick="updateMenutron(3);"> <a href='#chap3' style="text-decoration:none;"> Margin</a></div> <div class ="b1-bico-table-item-new"></div>
+                    	</div>
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-up"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(8);"><a href='#chap8' style="text-decoration:none;"> EIS</a></div>
+                    	</div>
+                    </div>
+                    <div class="b1-bico-toc-container">
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-up"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(4);"><a href='#chap4' style="text-decoration:none;">Profitability</a></div> <div class ="b1-bico-table-item-new"></div>
+                    	</div>
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-down"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(11);"> <a href='#chap11' style="text-decoration:none;">Wireless</a></div>
+                    	</div>
+                    </div>
+                    <div class="b1-bico-toc-container">
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-diamond"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(5);"> <a href='#chap5' style="text-decoration:none;">Earning Review</a></div> 
+                    	</div>
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-up"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(14);"> <a href='#chap14' style="text-decoration:none;"> Mexico Expansion</a></div>
+                    	</div>
+                    </div>
+                    <div class="b1-bico-toc-container">
+                    	<div class="b1-bico-toc-item-row">
+                    		 <div class="b1-bico-toc-item-cell"></div> 
+                    	</div>
+                    	<div class="b1-bico-toc-item-row">
+                    		<div class ="b1-bico-table-item-up"></div> <div class="b1-bico-toc-item-cell" onclick="updateMenutron(15);"> <a href='#chap15' style="text-decoration:none;">Spectrum</a></div>
+                    	</div>
+                    </div>
+                    
+                 	<div class="b1-bico-table-heading-2">Financial Data</div>
+	                <div class="b1-bico-table-item-2"> Earning Analyzer | BI \u00BB </div>                 
+                    
+                 </div>
+  
+
+                 <p>(Bloomberg Intelligence) -- AT&T Inc., the largest telecom carrier in the U.S., 
+                is in the midst of integrating DirecTV. AT&T is launching new and bundled services using DirecTV's content in a 
+                bid to spur growth as its legacy wireline and wireless segments slow. The company bought DirecTV in 2015 to expand 
+                its video business and gain access to content rights to offer mobile and over-the-top video services. 
+                Seeks new avenues for growth, AT&T also expanded into Mexico's wireless market by purchasing Iusacell and Nextel Mexico.
+                </p>
+                                                  
+                
+                <p> 	Expense reductions remain a core part of AT&T's strategy as well as it seeks to right-size its cost structure and 
+                		boost cash flow. AT&T expects the DirecTV deal to yield at least $2.5 billion in synergies by 2018, while other 
+                		cost reduction measures are forecast to yield $3 billion in savings.</p>
+                <div class="b1-blank-row"></div>
+                <div style="color:#989898;">Key Points:</div>
+                <ul>
+                  <li>AT&T Seeks to Leverage Cross-Selling Opportunity With DirecTV</li>
+                  <li>Wireless and Strategic Services Drive AT&T Business Solutions</li>
+                  <li>AT&T Has 39 Million Reasons to Cross-Sell a Promotional Bundle</li>
+                  <li>AT&T's Response to T-Mobile Pressures Wireless Services Growth</li>
+                  <li>AT&T's Wireless Expansion Into Mexico Marks Big Strategic Move</li>
+                </ul>
+			    
+			   <div class="b1-blank-row"></div>
+			    
+			    <div class= "b1-bico-section-chapter"><a name="chap2-Financial-Review"> Financial Review</a></div>
+			    <div class= "b1-bico-section-chapter-subheading"> Revenue Analysis</div>
+			    <div class="b1-bico-section-heading">2. AT&T Seeks to Leverage Cross-Selling Opportunity With DirecTV</div>
+                
+                <div class="b1-bico-subheading" ><a name="chap2">07/25/16</a></div>
+                <div class="b1-bico-chart2-section">  </div>
+                <p>   AT&T's wireless revenue, including consumer and business, was 50% of 
+                     2015 sales and rose at an average rate of 7.1% a year in 2007-15. A 
+                     combination of organic growth and acquisitions contributed. This growth has slowed recently due to wireless 
+                     saturation, amplifying the secular decline in the wireline business. With the acquisition of DirecTV now complete, 
+                     AT&T hopes to jump-start sales and subscriber growth by selling bundled services that include combinations of 
+                     broadband, wireless and video services.
+                </p>
+                <div class="b1-blank-row"></div>
+                <p>     
+                     Segments: Business Solutions is AT&T's largest segment, accounting for 48.5% of 2015's $146.8 billion in revenue. 
+                     About 54% of this segment's revenue comes from wireless services and 45.7% from fixed services. Consumer wireline 
+                     services were 24% of sales, consumer wireless 23.9% and International 2.8%.
+                </p>
+                <div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+			    
+			    <div class= "b1-bico-section-chapter-subheading"> Margin Analysis</div>
+			    <div class="b1-bico-section-heading">3. Prepaid Subscriber Base Weighs on AT&T's Wireless Ebitda Margin</div>
+                <div class="b1-bico-subheading"><a name="chap3">08/25/16</a></div>
+                <div class="b1-bico-chart3-section"></div>
+                <p>     
+                     AT&T's wireless Ebitda margin trails Verizon's due to AT&T's larger prepaid base, which represented 13% of its retail 
+                     subscribers in 2015 vs. 5% at Verizon. Prepaid is a lower-margin business than postpaid, so AT&T's larger proportion 
+                     is likely weighing on margins. While AT&T's wireless service margin expanded to 46.7% in 2015 from 36.5% in 2007 on 
+                     strong data growth, price competition poses a threat. In contrast, wireline margins may improve with the inclusion of DirecTV.
+                </p>
+                <div class="b1-blank-row"></div>
+                <p>     
+                     Peer Comparison: AT&T's wireless Ebitda service margin of 46.7% in 2015 trailed Verizon's 55.3%, but was higher than Sprint 
+                     (30.3%) and T-Mobile (29%). Its consumer wireline margin of 19.7% led Verizon's 18.8% due to the inclusion of the higher-margin 
+                     DirecTV business but trailed Comcast's 40.8% cable margin.
+                </p>
+                <div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+			    
+			    <div class= "b1-bico-section-chapter-subheading"> Profitability Analysis</div>
+			    <div class="b1-bico-section-heading">4. Pressure on AT&T Wireless Growth May Abate as Annual Comps Ease</div>
+                <div class="b1-bico-subheading"><a name="chap4">08/25/16</a></div>
+                <div class="b1-bico-chart4-section">  </div>
+                <p>     
+                     AT&T's wireless service revenue growth has fallen every year since 2012 due to industry maturation, a change in its service plans, 
+                     pricing pressure and phone subscriber losses. These trends have crimped wireless Ebitda growth, while wireline Ebitda has fallen 
+                     due to access-line losses. New video services, connected device subscriptions and international expansion are long-term drivers. 
+                     The shift in AT&T's subscriber base to lower-priced plans is almost complete, easing comparisons with the previous year.
+				</p>
+                <div class="b1-blank-row"></div>
+                <p>
+                	Segments: Business Solutions is AT&T's largest segment by Ebitda and remains the profit growth driver. 
+                	Business Solutions was 51% of pro-forma adjusted Ebitda in 2015 and grew the fastest at 5.7%. Consumer Mobility was 26% of 
+                	consolidated Ebitda and grew 5.5%, while the consumer wireline segment rose 2.6%.
+                </p>
+                <div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+                <div class= "b1-bico-section-chapter-subheading"> Earning Analysis</div>
+			    <div class="b1-bico-section-heading">5. AT&T Focused on DirecTV Integration, Stabilization: 2Q Review</div>
+                <div class="b1-bico-subheading"><a name="chap5">07/21/16</a></div>
+                <div class="b1-bico-subheading-container">
+                	<div class="b1-bico-subheading-item" style="color:#797E85;">Main Report </div>
+                	<div class="b1-bico-subheading-item" style="color:#53B2F5"> AT&T Inc. Earning Summary</div>
+                </div>
+              
+                 <div class="b1-bico-toc-financial-section">
+                 	<div class="b1-bico-section-heading">Key Points:</div>
+	                <ul>
+	                  <li> <div style="color:#53B2F5">AT&T's Revenue, Adjusted EPS In-Line With Estimates as Integration Period Continues | BI \u00BB </div></li>
+	                  <li> <div style="color:#53B2F5">Wireless Service Revenue Growth Remains Pressured By Subscriber Losses, Shift to Lower-Rate Financing Plans | BI \u00BB</div></li>
+	                  <li><div style="color:#53B2F5">Business Solutions Segment Shows Mixed Results as Wireless, Strategic Services Grow, Legacy Business Declines | BI \u00BB</div></li>
+	                  <li><div style="color:#53B2F5">Postpaid Net Additions Improve Sequentially as Phone Losses Narrow, Smartphone Growth Accelerates | BI \u00BB</div></li>
+	                </ul>
+                    <div class="b1-bico-section-heading">Additional Resources:</div>
+	                <ul>
+	                  <li> <div style="color:#53B2F5">Analyzer | BI \u00BB </div></li>
+	                  <li> <div style="color:#53B2F5">Earnings Release | DOCC \u00BB</div></li>
+	                  <li><div style="color:#53B2F5">Earnings Call Transcript | DOCC \u00BB</div></li>
+	                </ul>
+                 </div>
+                <p>                                                        
+                     AT&T posted in-line 2Q results and maintained its annual guidance, with its focus remaining on integrating and stabilizing 
+                     operations following the DirecTV and Mexico wireless acquisitions and the closure of its 2G wireless network. While these 
+                     moves have had a mixed impact on near-term growth, their long-term effect is likely to be constructive. There was also no 
+                     impact on AT&T's adjusted Ebitda margin, which rose 36 bps from 1Q to 33.1% and 43 bps vs. 2Q15, on a pro forma basis, on lower expenses.
+                </p>
+                <div class="b1-blank-row"></div>
+                <p> 
+                	 AT&T's wireless revenue fell 2.1% vs. 2Q15 to $17.9 billion, due to a decline in postpaid phones from 67.6 million to 65.7 
+                	 million, together with a rise in lower-priced prepaid phones and connected devices. Pricing pressure remains an issue in 
+                	 what is now a mature U.S. wireless industry.
+                 </p>
+            	<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+                <div class= "b1-bico-section-chapter"> Topics</div>
+			    <div class= "b1-bico-section-chapter-subheading"> Business Solutions</div>
+			    <div class="b1-bico-section-heading">6. Wireless and Strategic Services Drive AT&T Business Solutions</div>
+                <div class="b1-bico-subheading"><a name="chap6">03/31/16</a></div>
+                <div class="b1-bico-chart6-section">  </div>
+                <p>     
+                     The growth in AT&T's Business Solutions segment -- its largest following a reorganization of the reporting segments -- is being driven by 
+                     increases in both wireless and strategic services revenue. AT&T is leveraging its scale across wireless and fixed-line 
+                     services to offer integrated products to enterprise customers in a bid to promote growth in this area. Still, the growth in 
+                     Business Services may remain muted in the near term by a persistent decline in legacy voice, data and other services.
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+                <div class="b1-bico-section-heading">7. While AT&T's Business Wireless ARPU Is Lower, So Is Churn Rate</div>
+                <div class="b1-bico-subheading"><a name="chap7">03/31/16</a></div>
+                <div class="b1-bico-chart7-section">  </div>
+                <p>     
+                     The higher mix of connected device subscriptions, such as fleet tracking, monitoring and other embedded sensor services, 
+                     in AT&T's business wireless segment is weighing on average revenue per user, but is driving lower churn rates in this segment. 
+                     Connected devices represented 34.3% of AT&T's 73.6 million business wireless subscribers vs. just 1.7% of its 55 million consumer 
+                     subscribers. This resulted in a business wireless revenue per user of $36.86 and churn of 1.1% vs. $44.00 and 1.31% in the consumer segment.
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+
+			    <div class= "b1-bico-section-chapter-subheading">Entertainment and Internet Services</div>
+			    <div class="b1-bico-section-heading">8. AT&T Leverages Its Scale to Deliver Integrated Telecom Services</div>
+                <div class="b1-bico-subheading"><a name="chap8">03/31/16</a></div>
+                <div class="b1-bico-chart8-section">  </div>
+                <p>     
+                     AT&T CEO Randall Stephenson articulated the company's strategy for its U.S. consumer business, which will primarily leverage its 
+                     connectivity and integrated services to differentiate AT&T from its rivals. The acquisition of DirecTV will allow AT&T to offer 
+                     bundled voice, video and data services across a broad range of devices. The company has already launched new service plans that 
+                     include wireless and video, such as its unlimited wireless data plan available only to AT&T pay-TV subscribers.
+				</p>
+				 <div class="b1-blank-row"></div>
+				<p>
+					Companies Impacted: AT&T is attempting to differentiate itself from rivals with integrated services. AT&T competes 
+					with Sprint, T-Mobile and Verizon nationally in the U.S. wireless market. Its largest pay-TV competitors are Comcast 
+					and Charter (pro forma with Time Warner Cable and Bright House).
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+				<div class="b1-blank-row"></div>
+				<div class="b1-bico-section-heading">9. Legacy Voice, DSL Internet Services Weigh on AT&T Wireline Gains</div>
+                <div class="b1-bico-subheading"><a name="chap9">03/31/16</a></div>
+                <div class="b1-bico-chart9-section">  </div>
+                <p>     
+                     AT&T's legacy voice and DSL Internet subscriber base has been mired in a protracted decline amid competition from cable 
+                     operators, which can offer better-quality services than AT&T's legacy, copper-based offerings. In the last two years, AT&T 
+                     lost 9.8 million net DSL and voice subscribers, partly offset by the addition of 616,000 video and 3.2 million net IP 
+                     broadband subscribers. With 27.6% of AT&T's 52.2 million wireline connections still paying for legacy services, the risk 
+                     of further decline remains.
+                </p>
+                <div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+                
+				<div class="b1-bico-section-heading">10. AT&T Has 39 Million Reasons to Cross-Sell a Promotional Bundle</div>
+                <div class="b1-bico-subheading"><a name="chap10">03/31/16</a></div>
+                <div class="b1-bico-chart10-section">  </div>
+                <p>     
+                     AT&T expects to garner $2.5 billion in cost savings from the DirecTV acquisition by 2018. It also estimates an incremental 
+                     revenue gain from cross-selling wireless, video and broadband to 39 million households. AT&T hopes to cross-sell its 
+                     wireless service to 15 million DirecTV households, its DirecTV video to 21 million AT&T wireless subscribers and 
+                     broadband to 3 million DirecTV customers. This speaks to the size of the revenue opportunity AT&T faces if 
+                     it can create attractively priced service bundles.
+                </p>
+                <div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+                <div class="b1-blank-row"></div>
+			    <div class= "b1-bico-section-chapter-subheading">Wireless</div>
+			    <div class="b1-bico-section-heading">11. Saturation, Competitive Challenges May Curb AT&T Wireless Growth</div>
+                <div class="b1-bico-subheading"><a name="chap11">04/04/16</a></div>
+                <div class="b1-bico-chart11-section">  </div>
+                <p>     
+                     AT&T's biggest challenge in its wireless business is maintaining growth with subscriber gains slowing and price competition
+                     rising, now that wireless penetration exceeds 105% in North America, according to Ovum. These factors have crimped service 
+                     revenue, which fell 2% in 2015 after declining 0.8% in 2014. To restore growth, AT&T is expanding into new services such 
+                     as the connected car and home, as well as wireless video. These services will take time to evolve, posing a near-term risk 
+                     to growth.
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+				<div class="b1-blank-row"></div>
+				<div class="b1-bico-section-heading">12. AT&T's Response to T-Mobile Pressures Wireless Services Growth</div>
+                <div class="b1-bico-subheading"><a name="chap12">04/04/16</a></div>
+                <div class="b1-bico-chart12-section">  </div>
+                <p>     
+                     AT&T introduced equipment installment plans to reduce churn amid heavy pricing pressure from T-Mobile. This allows 
+                     subscribers to finance their devices in lieu of buying them outright at a subsidized price. The initiative has driven
+                      strong growth in wireless equipment sales at the expense of service revenue because customers of the plan receive 
+                      a discount on their monthly service. Still, with 70% of AT&T's postpaid base now on no-subsidy plans, the worst of 
+                      the service-revenue impact is over.
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+     			<div class="b1-blank-row"></div>
+				<div class="b1-bico-section-heading">13. Connected Cars, Tablets Are Central to AT&T Boosting Wireless</div>
+                <div class="b1-bico-subheading"><a name="chap13">04/04/16</a></div>
+                <div class="b1-bico-chart13-section">  </div>
+                <p>     
+                     AT&T's recent postpaid growth has come mostly from new LTE smartphone and tablet subscribers. The company's postpaid 
+                     smartphone penetration was 88% in 2015, suggesting the upgrade opportunity to smartphones from feature phones has 
+                     diminished. AT&T is now shifting focus to new tablets and devices, including connected cars, to grow its subscriber 
+                     base. The planned launch of a wireless over-the-top video service in 2016 may help AT&T gain subscriber share by 
+                     differentiating its wireless service.
+				</p>
+				<div class="b1-blank-row"></div>
+			    <div class= "b1-bico-section-chapter-subheading">Mexico Expansion</div>
+			    <div class="b1-bico-section-heading">14. AT&T's Wireless Expansion Into Mexico Marks Big Strategic Move</div>
+                <div class="b1-bico-subheading"> <a name="chap14">04/04/16 </a></div>
+                <div class="b1-bico-chart14-section">  </div>
+                <p>     
+                     AT&T is the first major U.S. carrier to expand outside the nation through the acquisition of two Mexican mobile carriers, 
+                     Iusacell and Nextel Mexico. The rationale for these deals lies in AT&T's view that there is strong pent-up demand for 
+                     mobile Internet services in Mexico. These deals provide AT&T with fairly deep spectrum holdings, which are essential to 
+                     providing wireless Internet services. With a solid foothold in Mexico, AT&T stands to gain key experience operating in 
+                     a non-English-speaking market.
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+				<div class="b1-blank-row"></div>
+			    <div class= "b1-bico-section-chapter-subheading">Spectrum</div>
+			    <div class="b1-bico-section-heading">15. AT&T Spectrum Bill at $18.2 Billion Building Mobile Video Pipe</div>
+                <div class="b1-bico-subheading"><a name="chap15">04/04/16 </a></div>
+                <div class="b1-bico-chart15-section">  </div>
+                <p>     
+                     AT&T was the largest bidder in the AWS-3 wireless spectrum auction in 2015, buying 6.3 billion MHz-Pops (20 MHz nationally) 
+                     for $18.2 billion, in a bid to add capacity in support of plans to offer wireless video services. Before the auction, AT&T 
+                     owned less mid-band AWS-1 spectrum than T-Mobile or Verizon. AWS is well-suited for use in delivering high-capacity services 
+                     such as mobile video. AT&T now owns 10.1 billion MHz-Pops of AWS, putting it on par with T-Mobile and Verizon.
+				</p>
+				<div class="b1-bico-top"> <a href='#chap1' style="text-decoration:none; color:#53B2F5; padding-right:15px;">Return to Top</a></div>
+				<div class="b1-blank-row"></div>
+				<div style="color:#A26100;margin-left:5px;" >To contact the analyst for this research:</div>
+				<div class="b1-bico-contact-container" style="margin-left:5px;">
+				<div style="color:#A26100;"> John Butler at </div> <div style="color:#53B2F5; margin-left:5px;"> jbutler51@bloomberg.net</div> </div>
+				<div class="b1-blank-row"></div>
+				<div class="b1-blank-row"></div>
+			`;
+
+			this.bicoScrollDiv.innerHTML = HTML_TEMPLATE;
+			this.bicoScrollDiv.addEventListener("scroll",handleScroll);
+			
+		//	if (this.owner.selectedSecurity){
+				this.loadSecurity(this.owner.selectedSecurity);
+		//	}
+		}
+	};
+	ns.PrototypeFunctions.bico.prototype.onTitleBarMenuItemSelect = function (itemId, e, menuId) {
+		console.log('BICO got title bar menu selection: ' + itemId);
+		if (itemId ==="optionA"){
+			console.log("SHOW the menu on left");
+			updateMenuLeft("left");
+		}
+		else if (itemId ==="optionB"){
+			updateMenuLeft("right");
+		}
+		
+	};
+	ns.PrototypeFunctions.bico.prototype.loadSecurity = function(security) {
+		console.log('BICO is loading security: ' + security.title);
+	};
+
+	ns.PrototypeFunctions.bico.prototype.onSecuritySelected = function(security) {
+		// Called when the user selects an item in the B1 window's securities menu
+		this.loadSecurity(security);
+	};
+
+	ns.PrototypeFunctions.bico.prototype.destroy = function() {
+		// Called when the user selects another function in the B1 window's securities menu, or the window closes
+		// Clean up: document listeners, timers, intervals, unsubscribe any objects watching this, etc.
+		console.log('Destroying BICO');
+		ns.PrototypeFunctions.bico.parent.destroy.apply(this, arguments);
+	};
+
+	ns.PrototypeFunctions.bico.prototype.onWindowEvent = function(eventType) {
+		console.log('BICO got window event: ' + eventType);
+	};
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+
+	ns.PrototypeFunctions.def = function (initData) {
+		ns.PrototypeFunctions.def.parent.constructor.apply(this, arguments);
+		this.title = 'DEF Title';
+	};
+
+	ns.extend(ns.PrototypeFunctions.def, ns.BBContentView);
+
+	ns.PrototypeFunctions.def.prototype.onDOMReady = function() {
+		if (this.owner.selectedSecurity){
+			this.loadSecurity(this.owner.selectedSecurity);
+		}
+	};
+
+	ns.PrototypeFunctions.def.prototype.loadSecurity = function(security) {
+		console.log('DEF is loading security: ' + security.title);
+	};
+
+	ns.PrototypeFunctions.def.prototype.onSecuritySelected = function(security) {
+		this.loadSecurity(security);
+	};
+
+	ns.PrototypeFunctions.def.prototype.destroy = function() {
+		console.log('Destroying DEF');
+		ns.PrototypeFunctions.def.parent.destroy.apply(this, arguments);
+	};
+
+    
+                	
+	////////////////////////////////////////////////////////////////////////////////////////////////
+
+	app.init = function(){
+
+		ns.Desktop.create( {icons:['recycle','bb']} );
+
+		ns.Taskbar.create();
+		ns.Taskbar.addButton('bb', 'taskbar-bb');
+
+		var securities = {  // Items in the window's securities menu
+			t: {
+				title:'AT&T INC Equity',
+				shortTitle:'AT&T US Equity'
+			},
+			fb: {	
+				title:'FACEBOOK INC-A Equity',
+				shortTitle:'FB US Equity'
+			},
+			aapl: {
+				title:'APPLE INC Equity',
+				shortTitle:'AAPL US Equity'
+			},
+			nflx: {
+				title:'NETFLIX INC Equity',
+				shortTitle:'NFLX US Equity'
+			},
+			goog: {
+				title:'ALPHABET INC-C Equity',
+				shortTitle:'GOOG US Equity'
+			},
+			tsla: {
+				title:'TESLA MOTORS Equity',
+				shortTitle:'TSLA US Equity'
+			},
+			msft: {
+				title:'MICROSOFT CORP Equity',
+				shortTitle:'MSFT US Equity'
+			},
+			sbux: {
+				title:'STARBUCKS CORP Equity',
+				shortTitle:'SBUX US Equity'
+			},
+			cat: {
+				title:'CATERPILLAR INC Equity',
+				shortTitle:'CAT US Equity'
+			},
+			vz: {
+				title:'VERIZON COMMUNIC Equity',
+				shortTitle:'VZ US Equity'
+			},
+			yhoo: {
+				title:'YAHOO! INC Equity',
+				shortTitle:'YHOO US Equity'
+			}
+		};
+
+		var options = {
+			title: '1 - BLOOMBERG',
+			initialFunction: 'BICO',
+			initialSecurity: 't',
+			securities: securities,
+			closeDisabled: true, // Usually in prototypes the user should not be able to close the window
+			//initialPresetSize: 'large', // Defaults to 'normal'; possible values are 'tiny','small','large','extraLarge', and 'huge'
+			//x: 0,
+			//y: 0,
+			//width: 900,
+			//height: 500
+		};
+
+		this.win = new ns.B1Window(options);
+
+		this.win.positionCentered();
+		this.win.setPosition( Math.max(0, this.win.position.x), Math.max(0, this.win.position.y) ); // If centered window is cut off on top or left, align to those edges
+	};
+    /* CONTENT FOR BICO */
+    let para_1 = "(Bloomberg Intelligence) -- AT&T Inc., the largest telecom carrier in the U.S., is in the midst of integrating DirecTV. AT&T is launching new and bundled services using DirecTV's content in a bid to spur growth as its legacy wireline and wireless segments slow. The company bought DirecTV in 2015 to expand its video business and gain access to content rights to offer mobile and over-the-top video services. Seeks new avenues for growth, AT&T also expanded into Mexico's wireless market by" 
+  		+ "purchasing Iusacell and Nextel Mexico. \n\nExpense reductions remain a core part of AT&T's strategy as well as it seeks to right-size its cost structure and boost cash flow. AT&T expects the DirecTV deal to yield at least $2.5 billion in synergies by 2018, while other cost reduction measures are forecast to yield $3 billion in savings.";
+    let para_2 = "Key Points:";
+    
+    
+	ns.B2App.load( function () {app.init(); } );
+	
+})();
+    
+    
+ 
+     
+</script>
+</body>
