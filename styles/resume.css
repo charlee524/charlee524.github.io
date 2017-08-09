@@ -1,11 +1,54 @@
+
+/* BICO */
+::-webkit-scrollbar {
+	width:6px;
+    background-color:#626262; 
+}
+body{
+	font-family:Helvetica;
+}
+
+
+#topTitle{
+	margin: auto;
+	padding-top: 250px;
+	position:absolute;
+}
+
+
+#name{
+	padding-left: 18px;
+	width: 400px;
+	color: white;
+	margin: auto;
+}
+#year{
+	color: white;
+	margin: auto;
+	padding-top: 13px;
+}
+#position{
+	padding-top: 300px;
+	padding-left: 50px;
+	color: #626262;
+	margin: auto;
+	text-align: left;
+}
+
+a:-webkit-any-link{
+	cursor: auto;
+	text-decoration: none;
+	width: 200px;
+}
+
 .download{
-  padding-top: 200px;
+	padding-top: 200px;
 }
 #resume{
-  color: #08a55e;
+	color:	#08a55e;
 }
 .resumeImg:link{
-  width: 400px;
-  height: 400px;
-  color:#106CBC;
+	width: 400px;
+	height: 400px;
+	color: #106CBC;
 }

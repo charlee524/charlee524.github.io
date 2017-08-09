@@ -1,0 +1,495 @@
+
+
+.b1-title-bar-btn {
+	display: inline-block;
+	cursor: default;
+	padding: 0 14px;
+	border-right: 1px solid black;
+	position: relative;
+	vertical-align: top;
+	white-space: nowrap;
+	color: #f2f2f2;
+}
+
+.b1-title-bar-btn span {
+	letter-spacing: -0.4px;
+}
+
+.b1-title-bar-btn::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border-top: 1px solid transparent;
+	border-left: 1px solid transparent;
+	border-image: linear-gradient(to bottom, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 74%);
+	border-image-slice: 1;
+}
+
+.b1-title-bar-btn-down-caret {
+	display: inline-block;
+	position: relative;
+	width: 7px;
+	height: 4px;
+	background-position: -5px -55px;
+	background-image: url(../images/bb2-sprites.png);
+	vertical-align: top;
+	top: 8px;
+	margin-left: 7px;
+	margin-right: -7px;
+}
+
+.b1-title-bar-btn:hover {
+	background: linear-gradient(to bottom, rgb(205,23,49) 0%, rgb(177,19,42) 100%);
+}
+
+.b1-title-bar-btn:active,
+.b1-title-bar-btn.active {
+	background: rgb(139, 16, 33);
+}
+
+.b1-title-bar-btn:active::before,
+.b1-title-bar-btn.active::before {
+	border-image: none;
+	border-top-style: none;
+	border-left: 1px solid rgba(0,0,0,0.35);
+	border-right: 1px solid rgba(0,0,0,0.35);
+}
+
+.b1-title-bar-btn .number-go {
+	font-family: 'Bloomberg_Crix';
+	letter-spacing: 0;
+}
+
+.b1-title-bar-btn .number-go::after {
+	content: ')';
+	margin-left: 1px;
+	margin-right: 5px;
+}
+
+.b1 .bb-window-icon {
+	background-position: -141px -377px;
+}
+
+.bb-window-icon span {
+	font-family: 'Lucida_Console';
+	font-size: 9px;
+	vertical-align: top;
+	line-height: 15px;
+	letter-spacing: -0.8px;
+}
+
+.b1-content {
+	position: absolute;
+	top: 8px;
+	left: 9px;
+	right: 9px;
+	bottom: 13px; /* 8px; *;/* ??? */
+	/*background-color: blue;*/ /* rgba(255, 0, 0, 0.5); */
+}
+
+.b1 .scaling-box {
+	transform-origin: 0 0;
+	width: 720px;
+	height: 509px;
+	position: absolute;
+}
+
+.b1-cmd-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 135px;
+	height: 19px;
+	box-sizing: border-box;
+	border: 1px solid #095570;
+}
+
+.b1-two-line {
+	position: absolute;
+	left: 0;
+	top: 19px;
+	right: 0;
+	height: 19px;
+
+	/*background-color: rgba(255,0,255,0.3);*/
+}
+
+.b1-title-region {
+	position: absolute;
+	left: 0;
+	top: 38px;
+	right: 0;
+	height: 19px;
+	display: flex;
+	flex-direction: row;
+	background: linear-gradient(to bottom, rgb(163,18,39) 0%, rgb(135,15,30) 100%);
+	color: #ffffff;
+	line-height: 19px;
+	font-size: 15px;
+}
+
+.b1-title-button-bar {
+	flex: 1 1 auto;
+}
+
+.b1-app-title {
+	flex: 0 1 auto;
+	cursor: default;
+	margin-right: 7px;
+	letter-spacing: -0.1px;
+}
+
+.b1-app-region {
+	position: absolute;
+	left: 0;
+	/*top: 19px;*/
+	top: 57px;
+	right: 0;
+	bottom: 34px;
+	/*background-color: rgba(0,0,255,0.5);*/
+}
+
+.b1-ipanel-box {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	height: 34px;
+	/*box-sizing: border-box;
+	border: 1px solid transparent;*/
+}
+
+/* 23 by 19 should be height of content area */
+
+.b1-cmd-triangle {
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 8px;
+	height: 19px;
+	overflow: hidden;
+	/*background-color: rgba(255,0,0,0.5);*/
+}
+
+.b1-cmd-triangle::before {
+	position: absolute;
+    content: '\00a0';
+    left: 0;
+    top: 0.;
+	width: 0;
+	height: 0;
+	border-top: 9.5px solid transparent;
+	border-left: 8px solid #095570;
+	border-bottom: 9.5px solid transparent;
+}
+
+.b1-table {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.b1-toolbar {
+	height: 1.9em;
+	background: linear-gradient(to bottom, rgb(60,61,65) 0%, rgb(52,52,57) 100%);
+	font-size: 62.5%;
+}
+
+.b1-toolbar span {
+	color: #d8d8d8;
+	font-size: 115%;
+	letter-spacing: 0.015em;
+}
+
+.b1 .content-box {
+	top: 28px;
+	left: 6px;
+	right: 6px;
+	bottom: 6px;
+	background-color: black;
+	border: 1px solid rgba(255,255,255,.65);
+}
+
+.b1.active .content-box {
+}
+
+.menu-notes-b1-icon {
+	width: 1.6em;
+	height: 1.6em;
+	background-position: -26.7em -32.0em;
+	margin-left: 0.5em;
+	margin-right: 0.1em;
+}
+
+.b1-menu .menu-item.yellow {
+	background-color: #fadd51;
+}
+
+.b1-menu .menu-item.yellow:hover,
+.b1-menu .menu-item.yellow.hover {
+	background-color: #fffaa0;
+}
+
+.b1-menu .menu-item.yellow .title {
+	color: #000000;
+}
+
+.menu-alerts-b1-icon {
+	width: 1.6em;
+	height: 1.6em;
+	background-position: -28.5em -32.0em;
+	margin-left: 0.5em;
+	margin-right: 0.1em;
+}
+
+.yellow .menu-notes-b1-icon { 
+	background-position-y: -33.8em;
+}
+
+.b1-menu .menu-item:hover,
+.b1-menu .menu-item.hover {
+    /*background-color: #2a2a2e;*/
+    background-color: #323232;
+}
+
+.b1-menu .menu-header {
+    font-family: 'Bloomberg_Prop';
+    color: white;
+    font-size: 130%;
+}
+
+.menu.b1-menu {
+	/*background-color: #4f5155;*/
+	background-color: #222222;
+}
+
+.b1-menu .menu-item .title,
+.b1-menu .menu-table .title {
+	color: #d8d8d8;
+}
+
+.b1-menu .menu-divider-new td {
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAHJ0d////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==);
+	background-position: center;
+	background-repeat: repeat-x;
+	background-size: 100% 0.1em;
+}
+
+.b1-menu .menu-bg, 
+.b1-menu .menu-table {
+	border-color: #727477;
+}
+
+.b1-toolbar {
+	background: #202020;
+	height: 1.9em;
+	margin-top: 0.1em;
+}
+
+.b1-toolbar-arrows {
+	width: 4.0em;
+	height: 1.9em;
+	background-position: -24.9em -29.9em;
+}
+
+.b1-toolbar .message-btn {
+	/*line-height: 1.6em;*/
+	line-height: 1.8em;
+	padding-left: 0.4em;
+	padding-right: 0.6em;
+	cursor: default;
+	letter-spacing: 0.05em;
+}
+
+.b1-toolbar-btn,
+.b1-toolbar-cell {
+	display: table-cell;
+	position: relative;
+	vertical-align: top;
+}
+
+.b1-toolbar-menu-btn {
+	margin-top: 0.2em;
+	white-space: nowrap;
+	background: linear-gradient(to bottom, rgb(233, 233, 233) 0%, rgb(159,159,159) 100%);
+	height: 1.5em;
+	line-height: 1.5em;
+	margin-right: 0.3em;
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+	cursor: default;
+}
+
+.b1-toolbar-menu-btn.flagged {
+	background: linear-gradient(to bottom, rgb(255, 229, 90) 25%, rgb(220,173,34) 92%);
+}
+
+.b1-menu-down-caret {
+	display: inline-block;
+	width: 0.7em;
+	height: 0.6em;
+	background-position: -29.0em -31.2em;
+	margin-top: 0.5em;
+	margin-left: 0.5em;
+	vertical-align: top;
+}
+
+.b1-menu-dbl-down-caret {
+	display: inline-block;
+	width: 0.9em;
+	height: 1.0em;
+	background-position: -29.0em -30.0em;
+	margin-top: 0.3em;
+	margin-left: 0.5em;
+	vertical-align: top;
+}
+
+.b1-menu-flag {
+	display: none;
+	width: 1.0em;
+	height: 1.1em;
+	background-position: -30.1em -29.9em;
+	margin-top: 0.2em;
+	margin-left: 0.6em;
+	margin-right: -0.2em;
+	vertical-align: top;
+}
+
+.b1-toolbar-menu-btn.flagged .b1-menu-flag {
+	display: inline-block;
+}
+
+.b1-toolbar-menu-btn:hover {
+	background: linear-gradient(to bottom, rgb(243, 243, 243) 0%, rgb(199,199,199) 100%);
+}
+
+.b1-toolbar-menu-btn.flagged:hover {
+	background: linear-gradient(to bottom, rgb(232, 221, 152) 0%, rgb(201,171,101) 100%);
+}
+
+.b1-toolbar-menu-btn:active,
+.b1-toolbar-menu-btn.active {
+	background: white;
+	box-shadow: inset 0 0.1em 0.2em 0 rgba(0,0,0,.5);
+}
+
+.b1-toolbar-menu-btn.flagged:active,
+.b1-toolbar-menu-btn.flagged.active {
+	background: #fadd51;
+}
+
+.b1-toolbar-menu-btn span {
+	color: #000000;
+	font-size: 120%;
+}
+
+.b1-toolbar-icn {
+	height: 1.9em;
+	background-position-y: -32.0em;
+	vertical-align: top;
+	opacity: 0.83;
+}
+
+.b1-toolbar-btn:hover .b1-toolbar-icn,
+.b1-toolbar-btn:active .b1-toolbar-icn,
+.b1-toolbar-btn.active .b1-toolbar-icn {
+	opacity: 1;
+}
+
+.b1-toolbar-btn:active,
+.b1-toolbar-btn.active {
+	background-color: #262626;
+}
+
+.b1-toolbar-btn:hover .b1-toolbar-icn{
+	opacity: 1;
+}
+
+.b1-favorites-icn {
+	width: 2.3em;
+	background-position-x: -17.3em;
+}
+
+.b1-export-icn {
+	width: 2.3em;
+	background-position-x: -19.8em;
+}
+
+.b1-export-overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 2.3em;
+	height: 1.9em;
+	background-position: -22.3em -29.9em;
+}
+
+.b1-options-icn {
+	width: 2.3em;
+	background-position-x: -22.3em;
+}
+
+.b1-help-icn {
+	vertical-align: top;
+	width: 1.7em;
+	/*margin-right: 1.0em;*/
+	margin-right: 0.8em;
+	background-position-x: -24.8em ;
+}
+
+.menu-notes-b1-icon {
+	width: 1.6em;
+	height: 1.6em;
+	background-position: -26.7em -32.0em;
+	margin: 0.2em 0.1em 0 0.5em;
+}
+
+.menu-alerts-b1-icon {
+	width: 1.6em;
+	height: 1.6em;
+	background-position: -28.5em -32.0em;
+	margin: 0.2em 0.1em 0 0.5em;
+}
+
+.menu.b1-title-bar-menu {
+    background-color: rgb(139,16,33);
+    border-color: black;
+}
+
+.menu.b1-title-bar-menu::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 1px;
+	background-color: rgba(0,0,0,0.49);
+}
+
+.menu.b1-title-bar-menu .icon {
+    min-width: 8px;
+    width: 8px;
+}
+
+.menu.b1-title-bar-menu .menu-table {
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.menu.b1-title-bar-menu .menu-item {
+    height: 19px;
+}
+
+.b1-title-bar-menu .menu-item:hover,
+.b1-title-bar-menu .menu-item.hover {
+    background-color: rgb(109,5,16);
+}
+
+.b1-title-bar-menu .menu-item .title,
+.b1-title-bar-menu .menu-table .title {
+    color: #d8d8d8;
+}
+

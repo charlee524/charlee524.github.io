@@ -1,9 +1,37 @@
 #portfolio{
-  color: #08a55e;
+	color:	#08a55e;
+}
+.projContainer1{
+	display: flex;
+	font-size: 14px;
+}
+.projName1{
+	color: #08a55e;
+	font-weight: normal;
+	width: 150px;
+}
+.projDes1
+	text-align: top;
+	font-size: 14px;
+	color: #626262;
+	width: 500px;
+}
+a:-webkit-any-link{
+	cursor: auto;
+	color: #08a55e;
+	text-decoration: none;
+}
+.projContainer{
+	display: flex;
+	font-size: 14px;
+	font-weight: normal;
+	padding-top: 10px;
 }
 .projName{
-  color: #08a55e;
-  font-size: 14px;
-  font-weight: normal;
-  display: flex;
+	color: #08a55e;
+	width: 100px;
+}
+.projDes{
+	
+	width: 550px;
 }
