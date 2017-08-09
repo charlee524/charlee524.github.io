@@ -1,0 +1,17 @@
+.contact{
+  display: flex;
+  font-size: 14px;
+}
+.label{
+  color: #626262;
+  width: 100px;
+}
+.value{
+  width: 300px;
+}
+.download{
+  padding-top: 200px;
+}
+#contact{
+  color: #08a55e;
+}

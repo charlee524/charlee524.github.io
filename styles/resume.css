@@ -1,0 +1,11 @@
+.download{
+  padding-top: 200px;
+}
+#resume{
+  color: #08a55e;
+}
+.resumeImg:link{
+  width: 400px;
+  height: 400px;
+  color:#106CBC;
+}

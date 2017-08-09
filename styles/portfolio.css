@@ -1,0 +1,9 @@
+#portfolio{
+  color: #08a55e;
+}
+.projName{
+  color: #08a55e;
+  font-size: 14px;
+  font-weight: normal;
+  display: flex;
+}
