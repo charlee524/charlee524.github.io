@@ -1,6 +1,14 @@
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
 	width:6px;
     background-color:#626262; 
+}
+*/
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+	
 }
 body{
 	font-family:Helvetica;
@@ -12,10 +20,9 @@ body{
 
 li { 
 	list-style-type: none;
-	
 }
 h1 {
-	padding-top:10px;
+	line-height: 10px;
 	color: #08a55e;
 }
 h2 {
@@ -33,7 +40,7 @@ p {
 
 
 #home{
-	padding-top: 30px;
+	padding-top: 8px;
 }
 ul.navOrder{ 
 	padding-top: 30px;
@@ -51,8 +58,7 @@ ul.navOrder{
 	padding-left: 40px;
 }
 #rightImg{
-	width: 600px;
-	height: 550px;
+	padding-left: 40px;
 	font-size: 20px;
 	font-weight: bold;
 	background-color:#08a55e;
@@ -93,57 +99,44 @@ a{
 .leftNav{
 	padding-top: 10px;
 	color: #626262;
-	width: 200px;
+	width: 150px;
 }
 
 #aboutMe{
 	margin: auto;
-	width: 200px;
 	color: #626262;
 }
 #aboutMe:hover{
-	width: 200px;
 	background-color: #AFAFAF;
 	color: white;
 }
 
-
 #portfolio{
-	width: 200px;
 	margin: auto;
 	color: #626262;
 }
 #portfolio:hover{
-	width: 200px;
 	background-color: #AFAFAF;
 	color: white;
 	
 }
 #resume{
-	width: 200px;
 	margin: auto;
 	color: #626262;
 }
 #resume:hover{
-	width: 200px;
 	background-color: #AFAFAF;
 	color: white;
-	
 }
 #contact{
-	width: 200px;
 	margin: auto;
 	color: #626262;
 }
-#contact:hover{
-	width: 200px;
+#contact:hover{ 
 	background-color: #AFAFAF;
 	color: white;
 }
 .rightContent{
-	padding-top: 60px;
-	width: 650px;
-	height: 550px;
 	font-size: 20px;
 	font-weight: bold;
 }
