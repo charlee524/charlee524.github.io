@@ -16,6 +16,7 @@ body{
 }
 .container{
 	display: flex;
+	
 }
 
 li { 
@@ -62,23 +63,24 @@ ul.navOrder{
 	font-size: 20px;
 	font-weight: bold;
 	background-color:#08a55e;
-	text-align: center;
+	text-align: left;
+	width: -webkit-fill-availale;
+	height: -webkit-fill-available;
 }
 #topTitle{
 	margin: auto;
-	padding-top: 250px;
+	padding-top: 150px;
 	display: flex;
-	position:absolute;
 }
 #name{
-	padding-left: 18px;
-	width: 400px;
+	width: 360px;
 	color: white;
-	margin: auto;
+	text-aligned: left;
 }
 #year{
 	color: white;
-	margin: auto;
+	margin-top: 15px;
+	margin-right: auto;
 	padding-top: 13px;
 }
 #position{
