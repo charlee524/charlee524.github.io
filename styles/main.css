@@ -101,7 +101,7 @@ a{
 .leftNav{
 	padding-top: 10px;
 	color: #626262;
-	width: 150px;
+	min-width: 150px;
 }
 
 #aboutMe{
