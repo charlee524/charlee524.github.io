@@ -9,11 +9,14 @@ a:-webkit-any-link{
 .blankSpace{
 	height: 100px;
 }
+.blankLine{
+	border-bottom: 1px solid #08a55e;	
+}
 .allProjectScroll{
 	height:100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding-right: 10px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding-right: 10px;
 }
 .separator{
 	padding-top: 5px;
@@ -48,7 +51,6 @@ a:-webkit-any-link{
     	background-size: contain;
     	width: 400px;
     	height: 300px;
-    	border: 1px solid red;
 }
 
 .projImg2{
@@ -69,102 +71,102 @@ a:-webkit-any-link{
 
 .projImg4{
 	background-image: url(../images/p3s_muni.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg5{
 	background-image: url(../images/p3s_tbill.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg6{
 	background-image: url(../images/p2wei.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg7{
 	background-image: url(../images/p2wei_setting.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg8{
 	background-image: url(../images/p2wei_setting1.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 
 .projImg9{
-    background-image: url(../images/p4UXP.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/p4UXP.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg10{
-    background-image: url(../images/P5_XFNA_1.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P5_XFNA_1.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg11{
-    background-image: url(../images/P5_XFNA_2.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P5_XFNA_2.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg12{
-    background-image: url(../images/P5_XFNA_3.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P5_XFNA_3.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg13{
-    background-image: url(../images/P5_XFNA_4.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P5_XFNA_4.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg14{
-    background-image: url(../images/P5_XFNA_5.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P5_XFNA_5.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg15{
-    background-image: url(../images/P6_BEVO_XFNA.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P6_BEVO_XFNA.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg16{
-    background-image: url(../images/P7_FCN.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P7_FCN.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg17{
-    background-image: url(../images/P7_FCN_list.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+        background-image: url(../images/P7_FCN_list.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
 }
 .projImg1:hover,
 .projImg2:hover,
@@ -186,5 +188,5 @@ a:-webkit-any-link{
 {
 	background-size: 100%;
 	width: 640px;
-    height: 480px;
+        height: 480px;
 }
