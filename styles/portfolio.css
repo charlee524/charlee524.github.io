@@ -44,27 +44,27 @@ a:-webkit-any-link{
 }
 .projImg1{
 	background-image: url(../images/p1mars.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
-    border: 1px solid red;
+    	background-repeat: no-repeat;
+    	background-size: contain;
+    	width: 400px;
+    	height: 300px;
+    	border: 1px solid red;
 }
 
 .projImg2{
 	background-image: url(../images/p3s_mtge.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+    	background-repeat: no-repeat;
+    	background-size: contain;
+    	width: 400px;
+    	height: 300px;
 }
 
 .projImg3{
 	background-image: url(../images/p3s_mtge2.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 400px;
-    height: 300px;
+	background-repeat: no-repeat;
+    	background-size: contain;
+    	width: 400px;
+    	height: 300px;
 }
 
 .projImg4{
@@ -104,63 +104,63 @@ a:-webkit-any-link{
 }
 
 .projImg9{
-	background-image: url(../images/p4UXP.png);
+    background-image: url(../images/p4UXP.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg10{
-	background-image: url(../images/p5_XFNA_1.png);
+    background-image: url(../images/P5_XFNA_1.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg11{
-	background-image: url(../images/p5_XFNA_2.png);
+    background-image: url(../images/P5_XFNA_2.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg12{
-	background-image: url(../images/p5_XFNA_3.png);
+    background-image: url(../images/P5_XFNA_3.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg13{
-	background-image: url(../images/p5_XFNA_4.png);
+    background-image: url(../images/P5_XFNA_4.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg14{
-	background-image: url(../images/p5_XFNA_5.png);
+    background-image: url(../images/P5_XFNA_5.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg15{
-	background-image: url(../images/p6_BEVO_XFNA.png);
+    background-image: url(../images/P6_BEVO_XFNA.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg16{
-	background-image: url(../images/p7_FCN.png);
+    background-image: url(../images/P7_FCN.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
     height: 300px;
 }
 .projImg17{
-	background-image: url(../images/p7_FCN_list.png);
+    background-image: url(../images/P7_FCN_list.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 400px;
