@@ -16,7 +16,6 @@ body{
 }
 .container{
 	display: flex;
-	
 }
 
 li { 
@@ -29,7 +28,6 @@ h1 {
 h2 {
 	height: 12px;
 	font-weight: bold;
-	
 }
 h3 {
 	color: #626262;	
@@ -38,7 +36,6 @@ p {
 	color: #626262;	
 	font-size: 14px;	
 }
-
 
 #home{
 	padding-top: 8px;
@@ -59,12 +56,12 @@ ul.navOrder{
 	padding-left: 40px;
 }
 #rightImg{
-	padding-left: 40px;
+	padding-left: 20px;
 	font-size: 20px;
 	font-weight: bold;
 	background-color:#08a55e;
-	text-align: left;
-	width: -webkit-fill-availale;
+	text-align: center;
+	width: -webkit-fill-available;
 	height: -webkit-fill-available;
 }
 #topTitle{
