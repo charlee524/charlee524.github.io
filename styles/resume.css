@@ -59,6 +59,7 @@ a:-webkit-any-link{
 .resumeImg{
 	background-image: url(../images/resume.png);
     	background-repeat: no-repeat;
+	background-size: contain;
    	width: 100%;
 	height: 100%;
     	
