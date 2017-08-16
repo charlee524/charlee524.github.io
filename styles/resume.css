@@ -53,12 +53,14 @@ a:-webkit-any-link{
 	color: #106CBC;
 }
 .resumeImgContainer{
-	width: 100%;	
+	width: 100%;
+	height: 100%;
 }
 .ResumeImg{
 	background-image: url(../images/resume.png);
     	background-repeat: no-repeat;
     	background-size: contain;
    	width: 100%;
+	height: 100%;
     	
 }
