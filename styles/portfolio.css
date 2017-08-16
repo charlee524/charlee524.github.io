@@ -168,6 +168,69 @@ a:-webkit-any-link{
         width: 400px;
         height: 300px;
 }
+.projImg18{
+        background-image: url(../images/P8_BEAM.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg19{
+        background-image: url(../images/p9_NOTE.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg20{
+        background-image: url(../images/p9_NOTE_2.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg21{
+        background-image: url(../images/p9_NOTE_3.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg22{
+        background-image: url(../images/p9_NOTE_4.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg23{
+        background-image: url(../images/p10_ALRT_1a.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg24{
+        background-image: url(../images/p10_ALRT_1b.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg25{
+        background-image: url(../images/p10_ALRT_1c.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg26{
+        background-image: url(../images/p10_ALRT_1d.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
 .projImg1:hover,
 .projImg2:hover,
 .projImg3:hover,
@@ -184,7 +247,16 @@ a:-webkit-any-link{
 .projImg14:hover,
 .projImg15:hover,
 .projImg16:hover,
-.projImg17:hover
+.projImg17:hover,
+.projImg18:hover,
+.projImg19:hover,
+.projImg20:hover,
+.projImg21:hover,
+.projImg22:hover,
+.projImg23:hover,
+.projImg24:hover,
+.projImg25:hover,
+.projImg26:hover,
 {
 	background-size: 100%;
 	width: 640px;
