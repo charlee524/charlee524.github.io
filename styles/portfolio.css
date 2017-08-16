@@ -176,7 +176,7 @@ a:-webkit-any-link{
         height: 300px;
 }
 .projImg19{
-        background-image: url(../images/p9_NOTE.png);
+        background-image: url(../images/p9_NOTE_.png);
         background-repeat: no-repeat;
         background-size: contain;
         width: 400px;
@@ -231,6 +231,49 @@ a:-webkit-any-link{
         width: 400px;
         height: 300px;
 }
+.projImg27{
+        background-image: url(../images/p10_ALRT_1e.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg28{
+        background-image: url(../images/p10_ALRT_1f.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg29{
+        background-image: url(../images/p10_ALRT_1g.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg30{
+        background-image: url(../images/p10_ALRT_1h.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg31{
+        background-image: url(../images/p10_ALRT_1i.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+.projImg32{
+        background-image: url(../images/p10_ALRT_1j.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 400px;
+        height: 300px;
+}
+
 .projImg1:hover,
 .projImg2:hover,
 .projImg3:hover,
@@ -257,6 +300,12 @@ a:-webkit-any-link{
 .projImg24:hover,
 .projImg25:hover,
 .projImg26:hover,
+.projImg27:hover,
+.projImg28:hover,
+.projImg28:hover,
+.projImg30:hover,
+.projImg31:hover,
+.projImg32:hover
 {
 	background-size: 100%;
 	width: 640px;
