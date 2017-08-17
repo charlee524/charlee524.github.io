@@ -32,10 +32,10 @@ a:-webkit-any-link{
 }
 .projName{
 	color: #08a55e;
-	width: 100px;
+	width: 120px;
 }
 .projDes{
-	padding-left: 40px;
+	padding-left: 20px;
 }
 .projImgContainer{
 	font-size: 14px;
