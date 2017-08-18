@@ -55,6 +55,7 @@ a:-webkit-any-link{
 .resumeImgContainer{
 	width: 100%;
 	height: 100%;
+	overflow-y: scroll;
 }
 .resumeImage{
 	background-image: url(../images/resume.png);
@@ -62,5 +63,5 @@ a:-webkit-any-link{
 	background-size: cover;
    	width: 100%;
 	height: 900px;
-    	overflow-y: scroll;
+    	
 }
