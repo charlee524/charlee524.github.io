@@ -56,12 +56,12 @@ a:-webkit-any-link{
 	height:100vh;
         overflow-y: scroll;
         overflow-x: hidden;
-        padding-right: 5px;
+        padding-right: 10px;
 }
 .resumeImage{
 	background-image: url(../images/resume.png);
     	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 700px 900px;
    	width: 100%;
 	height: 1200px;
 }
