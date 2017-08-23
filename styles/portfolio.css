@@ -6,6 +6,9 @@ a:-webkit-any-link{
 	color: #08a55e;
 	text-decoration: none;
 }
+.spaceLine{
+	height: 100px;
+}
 .blankSpace{
 	height: 100px;
 }
